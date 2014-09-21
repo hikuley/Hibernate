@@ -17,24 +17,27 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="current_session_context_class">thread</property>
 
-        <mapping class="hibernate_ders_1_Giris_ve_kurulum.User"></mapping>
-        <mapping class="hibernate_ders_1_Giris_ve_kurulum.Personel"></mapping>
-        <mapping class="hibernate_ders_2.Customer"></mapping>
-        <mapping class="hibernate_ders_3.Student"></mapping>
-        <mapping class="hibernate_ders_4.Accounts"></mapping>
-        <mapping class="hibernate_ders_5_OnetoOne_Association.Citizen"></mapping>
-        <mapping class="hibernate_ders_5_OnetoOne_Association.CitizenAdrress"></mapping>
+        <!--<mapping class="hibernate_ders_1_Giris_ve_kurulum.User"></mapping>-->
+        <!--<mapping class="hibernate_ders_1_Giris_ve_kurulum.Personel"></mapping>-->
 
-        <mapping class="hibernate_ders_6_OnetoMany_Association.Univercity"></mapping>
-        <mapping class="hibernate_ders_6_OnetoMany_Association.Uni_Student"></mapping>
+        <!--<mapping class="hibernate_ders_2.Customer"></mapping>-->
 
-        <mapping class="hibernate_ders_7_ManytoMany_Association.Book"></mapping>
-        <mapping class="hibernate_ders_7_ManytoMany_Association.AutHour"></mapping>
+        <!--<mapping class="hibernate_ders_3.Student"></mapping>-->
 
-        <mapping class="OkulOgrenciAdresExisting.Ogrenciler"></mapping>
-        <mapping class="OkulOgrenciAdresExisting.Ogretmenler"></mapping>
+        <!--<mapping class="hibernate_ders_4.Accounts"></mapping>-->
 
+        <!--<mapping class="hibernate_ders_5_OnetoOne_Association.Citizen"></mapping>-->
+        <!--<mapping class="hibernate_ders_5_OnetoOne_Association.CitizenAdrress"></mapping>-->
 
+        <!--<mapping class="hibernate_ders_6_OnetoMany_Association.Univercity"></mapping>-->
+        <!--<mapping class="hibernate_ders_6_OnetoMany_Association.Uni_Student"></mapping>-->
+
+        <!--<mapping class="hibernate_ders_7_ManytoMany_Association.Book"></mapping>-->
+        <!--<mapping class="hibernate_ders_7_ManytoMany_Association.AutHour"></mapping>-->
+
+        <mapping class="hibernate_ders_8_Inheritance.Vehicle"></mapping>
+        <mapping class="hibernate_ders_8_Inheritance.TwoWheeler"></mapping>
+        <mapping class="hibernate_ders_8_Inheritance.FourWheeler"></mapping>
 
     </session-factory>
 </hibernate-configuration>
