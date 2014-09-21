@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2690994434">
+    <data-source source="LOCAL" name="hibernate.cfg.xml" uuid="f24a352f-2288-41f3-86a1-85d50ce38a8e">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/jsfhibercrud</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>df98df9cdf98df9cdf98df9c</user-password>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/jars/mysql-connector-java-5.1.26.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="config:hibernate.cfg.xml" uuid="ef572b7b-c3a9-4243-9444-ad58b9241176">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/jersey_restful</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>df98df9cdf98df9cdf98df9c</user-password>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/jars/mysql-connector-java-5.1.26.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="config:OkulOgrenci.cfg.xml" uuid="f6c8d738-a556-4063-b2f8-2132c66038f9">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/Hibernate</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>df98df9cdf98df9cdf98df9c</user-password>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/jars/mysql-connector-java-5.1.26.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
+</project>
+

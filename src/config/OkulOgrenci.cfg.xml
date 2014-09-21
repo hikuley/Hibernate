@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/Hibernate</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">262626</property>
+
+        <!--Hibernate SQL Göstermek için -->
+        <property name="show_sql">true</property>
+
+        <!--Drop and re-create the database schema on startup -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="current_session_context_class">thread</property>
+
+        <mapping class="OkulOgrenciAdresExisting.Ogrenciler"></mapping>
+        <mapping class="OkulOgrenciAdresExisting.Ogretmenler"></mapping>
+        <mapping class="OkulOgrenciAdresExisting.Adres"></mapping>
+
+
+
+    </session-factory>
+</hibernate-configuration>
