@@ -12,8 +12,9 @@ import java.io.Serializable;
 //        discriminatorType = DiscriminatorType.STRING
 //)
 //@DiscriminatorValue(value = "Vehicle Class")
-//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@Inheritance(strategy = InheritanceType.JOINED)
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)// kalıtılmış sınıfları tek bir tabloda toplar
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE) // kalıtılmış sınıfları ilişki olmadan ayrı tablolar halide oluşturur
+@Inheritance(strategy = InheritanceType.JOINED) //kalıtılmış sınıfları ilişkili tablolar haline getirir
 public class Vehicle implements Serializable{ // Araçlar
 
     @Id

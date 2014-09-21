@@ -1,6 +1,5 @@
 package hibernate_ders_8_Inheritance;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 /**
