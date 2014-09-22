@@ -41,5 +41,7 @@
 
         <mapping class="hibernate_ders_9_Create_Read_Update_Delete.Users"></mapping>
 
+        <mapping class="hibernate_ders_10_Queries_1.Workers"></mapping>
+
     </session-factory>
 </hibernate-configuration>
