@@ -39,5 +39,7 @@
         <mapping class="hibernate_ders_8_Inheritance.TwoWheeler"></mapping>
         <mapping class="hibernate_ders_8_Inheritance.FourWheeler"></mapping>
 
+        <mapping class="hibernate_ders_9_Create_Read_Update_Delete.Users"></mapping>
+
     </session-factory>
 </hibernate-configuration>
