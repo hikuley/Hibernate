@@ -613,154 +613,44 @@
       <column name="CHARACTER_SET_CLIENT" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
       <column name="COLLATION_CONNECTION" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
     </table>
-    <table name="Accounts" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="accountId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="userId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="accountBalnce" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="accountId,userId"/>
+    <table name="FourWheeler" schema="" catalog="jersey_restful" type="TABLE">
+      <column name="SteeringWheel" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="vehicleId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="vehicleId"/>
+      <foreign-key name="FK_c7i11u530r06eqapkarii9wno" columns="vehicleId" ref-table="Vehicle" ref-schema="" ref-catalog="jersey_restful" ref-columns="vehicleId" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_c7i11u530r06eqapkarii9wno" unique="false" columns="vehicleId"/>
     </table>
-    <table name="CUSTOMER_DETAILS" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="address" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="FK_nv9dts6hhvl6se57tnbxwg7b9" columns="id" ref-table="NEW_CUSTUMER_tabler" ref-schema="" ref-catalog="jersey_restful" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="FK_nv9dts6hhvl6se57tnbxwg7b9" unique="false" columns="id"/>
+    <table name="TwoWheeler" schema="" catalog="jersey_restful" type="TABLE">
+      <column name="steeringHandle" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="vehicleId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="vehicleId"/>
+      <foreign-key name="FK_15c3oo2ou8dcy4rcuh5967qtq" columns="vehicleId" ref-table="Vehicle" ref-schema="" ref-catalog="jersey_restful" ref-columns="vehicleId" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_15c3oo2ou8dcy4rcuh5967qtq" unique="false" columns="vehicleId"/>
     </table>
-    <table name="Citizen" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="citizen_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="surname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="adrressId" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="citizen_id"/>
-      <foreign-key name="FK_58j71fv70tv39ym3597xiownl" columns="adrressId" ref-table="CitizenAdrress" ref-schema="" ref-catalog="jersey_restful" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="FK_58j71fv70tv39ym3597xiownl" unique="false" columns="adrressId"/>
-    </table>
-    <table name="CitizenAdrress" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="city" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="road" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="street" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="zipcode" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="FK_58j71fv70tv39ym3597xiownl" table="Citizen" schema="" catalog="jersey_restful" columns="adrressId"/>
-    </table>
-    <table name="Kitap" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="KitapID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="pages" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="publicationDate" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
-      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="KitapID"/>
-      <exported-key name="FK_obc84sn6xioj46shl820rjbym" table="Kitap_Yazar" schema="" catalog="jersey_restful" columns="Kitap_KitapID"/>
-      <exported-key name="FK_5lwoaq6bafn0ofujd92o5qg0q" table="Yazar_Kitap" schema="" catalog="jersey_restful" columns="books_KitapID"/>
-    </table>
-    <table name="Kitap_Yazar" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="Kitap_KitapID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="autHours_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="Kitap_KitapID,autHours_id"/>
-      <foreign-key name="FK_hx0m2ouxaqubnm2t85lquelsb" columns="autHours_id" ref-table="Yazar" ref-schema="" ref-catalog="jersey_restful" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="FK_obc84sn6xioj46shl820rjbym" columns="Kitap_KitapID" ref-table="Kitap" ref-schema="" ref-catalog="jersey_restful" ref-columns="KitapID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="FK_hx0m2ouxaqubnm2t85lquelsb" unique="false" columns="autHours_id"/>
-      <index name="FK_obc84sn6xioj46shl820rjbym" unique="false" columns="Kitap_KitapID"/>
-    </table>
-    <table name="NEW_CUSTUMER_tabler" schema="" catalog="jersey_restful" type="TABLE">
+    <table name="Users" schema="" catalog="jersey_restful" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="FK_nv9dts6hhvl6se57tnbxwg7b9" table="CUSTOMER_DETAILS" schema="" catalog="jersey_restful" columns="id"/>
-    </table>
-    <table name="Ogrenciler" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="OgrenciAdi" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="OgrenciSoyadi" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="OgrenciTCno" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="Ogretmen_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="FK_ls4e0gud1ix9ettfnf65yrkqm" columns="Ogretmen_id" ref-table="Ogretmenler" ref-schema="" ref-catalog="jersey_restful" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="FK_ls4e0gud1ix9ettfnf65yrkqm" unique="false" columns="Ogretmen_id"/>
-    </table>
-    <table name="Ogretmenler" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="OgretmenAdi" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="OgretmenSoyadi" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="OgretmenTcno" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="OkulAdi" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="FK_ls4e0gud1ix9ettfnf65yrkqm" table="Ogrenciler" schema="" catalog="jersey_restful" columns="Ogretmen_id"/>
-    </table>
-    <table name="Personel" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="firstName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="lastName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ad" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="soyad" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
-    <table name="Student" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="yeniId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="city" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="road" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="street" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="zipCode" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="studentName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="studentSurname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="yeniId"/>
+    <table name="Vehicle" schema="" catalog="jersey_restful" type="TABLE">
+      <column name="vehicleId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="vehicleName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="vehicleId"/>
+      <exported-key name="FK_c7i11u530r06eqapkarii9wno" table="FourWheeler" schema="" catalog="jersey_restful" columns="vehicleId"/>
+      <exported-key name="FK_15c3oo2ou8dcy4rcuh5967qtq" table="TwoWheeler" schema="" catalog="jersey_restful" columns="vehicleId"/>
     </table>
-    <table name="Uni_Student" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="student_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="studentSurname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="sutudentName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="univercity_univercityId" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="student_id"/>
-      <foreign-key name="FK_6byjbi6uve5vtmen52vdma8yq" columns="univercity_univercityId" ref-table="Univercity" ref-schema="" ref-catalog="jersey_restful" ref-columns="univercityId" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="FK_m0xh8enreho02cely7ayidel7" table="Univercity_Uni_Student" schema="" catalog="jersey_restful" columns="uni_students_student_id"/>
-      <index name="FK_6byjbi6uve5vtmen52vdma8yq" unique="false" columns="univercity_univercityId"/>
-    </table>
-    <table name="Univercity" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="univercityId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="department" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="faculty" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="univercityName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="univercityId"/>
-      <exported-key name="FK_6byjbi6uve5vtmen52vdma8yq" table="Uni_Student" schema="" catalog="jersey_restful" columns="univercity_univercityId"/>
-      <exported-key name="FK_rrrvarmchvain7c4y32ymbyhf" table="Univercity_Uni_Student" schema="" catalog="jersey_restful" columns="Univercity_univercityId"/>
-    </table>
-    <table name="Univercity_Uni_Student" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="Univercity_univercityId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="uni_students_student_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <foreign-key name="FK_m0xh8enreho02cely7ayidel7" columns="uni_students_student_id" ref-table="Uni_Student" ref-schema="" ref-catalog="jersey_restful" ref-columns="student_id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="FK_rrrvarmchvain7c4y32ymbyhf" columns="Univercity_univercityId" ref-table="Univercity" ref-schema="" ref-catalog="jersey_restful" ref-columns="univercityId" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="UK_m0xh8enreho02cely7ayidel7" unique="true" columns="uni_students_student_id"/>
-      <index name="FK_m0xh8enreho02cely7ayidel7" unique="false" columns="uni_students_student_id"/>
-      <index name="FK_rrrvarmchvain7c4y32ymbyhf" unique="false" columns="Univercity_univercityId"/>
-    </table>
-    <table name="User" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="firstName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="lastName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="phoneNumber" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id"/>
-    </table>
-    <table name="Yazar" schema="" catalog="jersey_restful" type="TABLE">
+    <table name="Workers" schema="" catalog="jersey_restful" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="surname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="FK_hx0m2ouxaqubnm2t85lquelsb" table="Kitap_Yazar" schema="" catalog="jersey_restful" columns="autHours_id"/>
-      <exported-key name="FK_okhmitx8ikwpltpmdmehpj1e8" table="Yazar_Kitap" schema="" catalog="jersey_restful" columns="Yazar_id"/>
     </table>
-    <table name="Yazar_Kitap" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="Yazar_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="books_KitapID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="Yazar_id,books_KitapID"/>
-      <foreign-key name="FK_5lwoaq6bafn0ofujd92o5qg0q" columns="books_KitapID" ref-table="Kitap" ref-schema="" ref-catalog="jersey_restful" ref-columns="KitapID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="FK_okhmitx8ikwpltpmdmehpj1e8" columns="Yazar_id" ref-table="Yazar" ref-schema="" ref-catalog="jersey_restful" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="FK_5lwoaq6bafn0ofujd92o5qg0q" unique="false" columns="books_KitapID"/>
-      <index name="FK_okhmitx8ikwpltpmdmehpj1e8" unique="false" columns="Yazar_id"/>
-    </table>
-    <table name="hibernate_sequences" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="sequence_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="sequence_next_hi_value" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-    </table>
-    <table name="newTable" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="column_1" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+    <table name="Workers_new_table" schema="" catalog="jersey_restful" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="surname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="columns_priv" schema="" catalog="mysql" type="TABLE">
       <column name="Host" sqlType="CHAR" precision="60" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
@@ -1340,24 +1230,41 @@
     <schema name="" catalog="phpmyadmin"/>
     <schema name="" catalog="relfaper"/>
     <schema name="" catalog="servlet"/>
+    <table name="Adres" schema="" catalog="Hibernate" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ad" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="cadde" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="mahalle" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="sokak" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="zipcode" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_gbpeqvlf4vl45dmmr3bes99j5" table="Ogrenciler" schema="" catalog="Hibernate" columns="adres_id"/>
+      <exported-key name="FK_2p98tq2r91v19h8qe7vmhf8ep" table="Ogretmenler" schema="" catalog="Hibernate" columns="adres_id"/>
+    </table>
     <table name="Ogrenciler" schema="" catalog="Hibernate" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="OgrenciAdi" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
-      <column name="OgrenciSoyadi" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
-      <column name="OgrenciTCno" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
-      <column name="Ogretmen_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id,Ogretmen_id"/>
-      <foreign-key name="fk_Ogrenciler_Ogretmenler1" columns="Ogretmen_id" ref-table="Ogretmenler" ref-schema="" ref-catalog="Hibernate" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="fk_Ogrenciler_Ogretmenler1_idx" unique="false" columns="Ogretmen_id"/>
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="OgrenciAdi" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="OgrenciSoyadi" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="OgrenciTCno" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Ogretmen_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="adres_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_gbpeqvlf4vl45dmmr3bes99j5" columns="adres_id" ref-table="Adres" ref-schema="" ref-catalog="Hibernate" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_ls4e0gud1ix9ettfnf65yrkqm" columns="Ogretmen_id" ref-table="Ogretmenler" ref-schema="" ref-catalog="Hibernate" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_gbpeqvlf4vl45dmmr3bes99j5" unique="false" columns="adres_id"/>
+      <index name="FK_ls4e0gud1ix9ettfnf65yrkqm" unique="false" columns="Ogretmen_id"/>
     </table>
     <table name="Ogretmenler" schema="" catalog="Hibernate" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="OgretmenAdi" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
-      <column name="OgretmenSoyadi" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
-      <column name="OgretmenTcno" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
-      <column name="OkulAdi" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="OgretmenAdi" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="OgretmenSoyadi" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="OgretmenTcno" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="OkulAdi" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="adres_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="fk_Ogrenciler_Ogretmenler1" table="Ogrenciler" schema="" catalog="Hibernate" columns="Ogretmen_id"/>
+      <foreign-key name="FK_2p98tq2r91v19h8qe7vmhf8ep" columns="adres_id" ref-table="Adres" ref-schema="" ref-catalog="Hibernate" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_ls4e0gud1ix9ettfnf65yrkqm" table="Ogrenciler" schema="" catalog="Hibernate" columns="Ogretmen_id"/>
+      <index name="FK_2p98tq2r91v19h8qe7vmhf8ep" unique="false" columns="adres_id"/>
     </table>
     <table name="CHARACTER_SETS" schema="" catalog="information_schema" type="SYSTEM TABLE">
       <column name="CHARACTER_SET_NAME" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
@@ -1919,154 +1826,44 @@
       <column name="CHARACTER_SET_CLIENT" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
       <column name="COLLATION_CONNECTION" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
     </table>
-    <table name="Accounts" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="accountId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="userId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="accountBalnce" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="accountId,userId"/>
+    <table name="FourWheeler" schema="" catalog="jersey_restful" type="TABLE">
+      <column name="SteeringWheel" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="vehicleId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="vehicleId"/>
+      <foreign-key name="FK_c7i11u530r06eqapkarii9wno" columns="vehicleId" ref-table="Vehicle" ref-schema="" ref-catalog="jersey_restful" ref-columns="vehicleId" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_c7i11u530r06eqapkarii9wno" unique="false" columns="vehicleId"/>
     </table>
-    <table name="CUSTOMER_DETAILS" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="address" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="FK_nv9dts6hhvl6se57tnbxwg7b9" columns="id" ref-table="NEW_CUSTUMER_tabler" ref-schema="" ref-catalog="jersey_restful" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="FK_nv9dts6hhvl6se57tnbxwg7b9" unique="false" columns="id"/>
+    <table name="TwoWheeler" schema="" catalog="jersey_restful" type="TABLE">
+      <column name="steeringHandle" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="vehicleId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="vehicleId"/>
+      <foreign-key name="FK_15c3oo2ou8dcy4rcuh5967qtq" columns="vehicleId" ref-table="Vehicle" ref-schema="" ref-catalog="jersey_restful" ref-columns="vehicleId" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_15c3oo2ou8dcy4rcuh5967qtq" unique="false" columns="vehicleId"/>
     </table>
-    <table name="Citizen" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="citizen_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="surname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="adrressId" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="citizen_id"/>
-      <foreign-key name="FK_58j71fv70tv39ym3597xiownl" columns="adrressId" ref-table="CitizenAdrress" ref-schema="" ref-catalog="jersey_restful" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="FK_58j71fv70tv39ym3597xiownl" unique="false" columns="adrressId"/>
-    </table>
-    <table name="CitizenAdrress" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="city" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="road" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="street" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="zipcode" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="FK_58j71fv70tv39ym3597xiownl" table="Citizen" schema="" catalog="jersey_restful" columns="adrressId"/>
-    </table>
-    <table name="Kitap" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="KitapID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="pages" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="publicationDate" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
-      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="KitapID"/>
-      <exported-key name="FK_obc84sn6xioj46shl820rjbym" table="Kitap_Yazar" schema="" catalog="jersey_restful" columns="Kitap_KitapID"/>
-      <exported-key name="FK_5lwoaq6bafn0ofujd92o5qg0q" table="Yazar_Kitap" schema="" catalog="jersey_restful" columns="books_KitapID"/>
-    </table>
-    <table name="Kitap_Yazar" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="Kitap_KitapID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="autHours_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="Kitap_KitapID,autHours_id"/>
-      <foreign-key name="FK_obc84sn6xioj46shl820rjbym" columns="Kitap_KitapID" ref-table="Kitap" ref-schema="" ref-catalog="jersey_restful" ref-columns="KitapID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="FK_hx0m2ouxaqubnm2t85lquelsb" columns="autHours_id" ref-table="Yazar" ref-schema="" ref-catalog="jersey_restful" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="FK_hx0m2ouxaqubnm2t85lquelsb" unique="false" columns="autHours_id"/>
-      <index name="FK_obc84sn6xioj46shl820rjbym" unique="false" columns="Kitap_KitapID"/>
-    </table>
-    <table name="NEW_CUSTUMER_tabler" schema="" catalog="jersey_restful" type="TABLE">
+    <table name="Users" schema="" catalog="jersey_restful" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="FK_nv9dts6hhvl6se57tnbxwg7b9" table="CUSTOMER_DETAILS" schema="" catalog="jersey_restful" columns="id"/>
-    </table>
-    <table name="Ogrenciler" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="OgrenciAdi" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="OgrenciSoyadi" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="OgrenciTCno" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="Ogretmen_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="FK_ls4e0gud1ix9ettfnf65yrkqm" columns="Ogretmen_id" ref-table="Ogretmenler" ref-schema="" ref-catalog="jersey_restful" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="FK_ls4e0gud1ix9ettfnf65yrkqm" unique="false" columns="Ogretmen_id"/>
-    </table>
-    <table name="Ogretmenler" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="OgretmenAdi" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="OgretmenSoyadi" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="OgretmenTcno" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="OkulAdi" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="FK_ls4e0gud1ix9ettfnf65yrkqm" table="Ogrenciler" schema="" catalog="jersey_restful" columns="Ogretmen_id"/>
-    </table>
-    <table name="Personel" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="firstName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="lastName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ad" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="soyad" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
-    <table name="Student" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="yeniId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="city" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="road" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="street" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="zipCode" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="studentName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="studentSurname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="yeniId"/>
+    <table name="Vehicle" schema="" catalog="jersey_restful" type="TABLE">
+      <column name="vehicleId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="vehicleName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="vehicleId"/>
+      <exported-key name="FK_c7i11u530r06eqapkarii9wno" table="FourWheeler" schema="" catalog="jersey_restful" columns="vehicleId"/>
+      <exported-key name="FK_15c3oo2ou8dcy4rcuh5967qtq" table="TwoWheeler" schema="" catalog="jersey_restful" columns="vehicleId"/>
     </table>
-    <table name="Uni_Student" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="student_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="studentSurname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="sutudentName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="univercity_univercityId" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="student_id"/>
-      <foreign-key name="FK_6byjbi6uve5vtmen52vdma8yq" columns="univercity_univercityId" ref-table="Univercity" ref-schema="" ref-catalog="jersey_restful" ref-columns="univercityId" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="FK_m0xh8enreho02cely7ayidel7" table="Univercity_Uni_Student" schema="" catalog="jersey_restful" columns="uni_students_student_id"/>
-      <index name="FK_6byjbi6uve5vtmen52vdma8yq" unique="false" columns="univercity_univercityId"/>
-    </table>
-    <table name="Univercity" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="univercityId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="department" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="faculty" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="univercityName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="univercityId"/>
-      <exported-key name="FK_6byjbi6uve5vtmen52vdma8yq" table="Uni_Student" schema="" catalog="jersey_restful" columns="univercity_univercityId"/>
-      <exported-key name="FK_rrrvarmchvain7c4y32ymbyhf" table="Univercity_Uni_Student" schema="" catalog="jersey_restful" columns="Univercity_univercityId"/>
-    </table>
-    <table name="Univercity_Uni_Student" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="Univercity_univercityId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="uni_students_student_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <foreign-key name="FK_rrrvarmchvain7c4y32ymbyhf" columns="Univercity_univercityId" ref-table="Univercity" ref-schema="" ref-catalog="jersey_restful" ref-columns="univercityId" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="FK_m0xh8enreho02cely7ayidel7" columns="uni_students_student_id" ref-table="Uni_Student" ref-schema="" ref-catalog="jersey_restful" ref-columns="student_id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="UK_m0xh8enreho02cely7ayidel7" unique="true" columns="uni_students_student_id"/>
-      <index name="FK_m0xh8enreho02cely7ayidel7" unique="false" columns="uni_students_student_id"/>
-      <index name="FK_rrrvarmchvain7c4y32ymbyhf" unique="false" columns="Univercity_univercityId"/>
-    </table>
-    <table name="User" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="firstName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="lastName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="phoneNumber" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id"/>
-    </table>
-    <table name="Yazar" schema="" catalog="jersey_restful" type="TABLE">
+    <table name="Workers" schema="" catalog="jersey_restful" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="surname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="FK_hx0m2ouxaqubnm2t85lquelsb" table="Kitap_Yazar" schema="" catalog="jersey_restful" columns="autHours_id"/>
-      <exported-key name="FK_okhmitx8ikwpltpmdmehpj1e8" table="Yazar_Kitap" schema="" catalog="jersey_restful" columns="Yazar_id"/>
     </table>
-    <table name="Yazar_Kitap" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="Yazar_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="books_KitapID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="Yazar_id,books_KitapID"/>
-      <foreign-key name="FK_okhmitx8ikwpltpmdmehpj1e8" columns="Yazar_id" ref-table="Yazar" ref-schema="" ref-catalog="jersey_restful" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="FK_5lwoaq6bafn0ofujd92o5qg0q" columns="books_KitapID" ref-table="Kitap" ref-schema="" ref-catalog="jersey_restful" ref-columns="KitapID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="FK_5lwoaq6bafn0ofujd92o5qg0q" unique="false" columns="books_KitapID"/>
-      <index name="FK_okhmitx8ikwpltpmdmehpj1e8" unique="false" columns="Yazar_id"/>
-    </table>
-    <table name="hibernate_sequences" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="sequence_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="sequence_next_hi_value" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-    </table>
-    <table name="newTable" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="column_1" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+    <table name="Workers_new_table" schema="" catalog="jersey_restful" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="surname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="columns_priv" schema="" catalog="mysql" type="TABLE">
       <column name="Host" sqlType="CHAR" precision="60" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
