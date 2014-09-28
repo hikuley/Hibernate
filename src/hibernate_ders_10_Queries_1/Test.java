@@ -24,7 +24,7 @@ public class Test {
         String hql = "from Workers"; // select * from
         Query query = session.createQuery(hql); // sorguyu veritabanına gönderdik ve query adında bir kaynak oluşturduk
         query.setFirstResult(5);//kayıtları kaçıncı sıradan (index) itibaren getireceğini belirmiş olduk
-        query.setMaxResults(5); // kaç edet kayıt getirebileceğimizi belirmiş olduk.
+        query.setMaxResults(5); // kaç adet kayıt getirebileceğimizi belirmiş olduk.
         List resultList = query.list();// query den liste ile data mızı aldık
 
         for (Iterator it = resultList.iterator(); it.hasNext(); ) { // iterator nesnesi ile listedeki elemanları döndürdük
