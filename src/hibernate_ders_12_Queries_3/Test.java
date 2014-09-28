@@ -39,7 +39,7 @@ public class Test {
 //            session.save(supplier);//--- Kayıt
 //        }
         HQLExample hqlExample = new HQLExample();
-        hqlExample.executeOrderTwoPropertiesHQL(session);
+        hqlExample.executeSoftwareList(session);
 
         session.getTransaction().commit(); //---Transaction Start
     }
