@@ -50,6 +50,8 @@
         <mapping class="hibernate_ders_12_Queries_3.Product"></mapping>
         <mapping class="hibernate_ders_12_Queries_3.Software"></mapping>
 
+        <mapping class="hibernate_ders_13_Criteria_Queries_01.Employee1"></mapping>
+
 
     </session-factory>
 </hibernate-configuration>

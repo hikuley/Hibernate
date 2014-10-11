@@ -1805,44 +1805,23 @@
       <column name="CHARACTER_SET_CLIENT" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
       <column name="COLLATION_CONNECTION" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
     </table>
-    <table name="FourWheeler" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="SteeringWheel" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="vehicleId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="vehicleId"/>
-      <foreign-key name="FK_c7i11u530r06eqapkarii9wno" columns="vehicleId" ref-table="Vehicle" ref-schema="" ref-catalog="jersey_restful" ref-columns="vehicleId" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="FK_c7i11u530r06eqapkarii9wno" unique="false" columns="vehicleId"/>
-    </table>
-    <table name="TwoWheeler" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="steeringHandle" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="vehicleId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="vehicleId"/>
-      <foreign-key name="FK_15c3oo2ou8dcy4rcuh5967qtq" columns="vehicleId" ref-table="Vehicle" ref-schema="" ref-catalog="jersey_restful" ref-columns="vehicleId" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="FK_15c3oo2ou8dcy4rcuh5967qtq" unique="false" columns="vehicleId"/>
-    </table>
-    <table name="Users" schema="" catalog="jersey_restful" type="TABLE">
+    <table name="Product" schema="" catalog="jersey_restful" type="TABLE">
+      <column name="DTYPE" sqlType="VARCHAR" precision="31" scale="0" nullable="false" jdbcType="12"/>
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="ad" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="soyad" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="desciription" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="price" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="version" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="supplier_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_rs36j88onyhh1iunlr6qthvj6" columns="supplier_id" ref-table="Supplier" ref-schema="" ref-catalog="jersey_restful" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_rs36j88onyhh1iunlr6qthvj6" unique="false" columns="supplier_id"/>
     </table>
-    <table name="Vehicle" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="vehicleId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="vehicleName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="vehicleId"/>
-      <exported-key name="FK_c7i11u530r06eqapkarii9wno" table="FourWheeler" schema="" catalog="jersey_restful" columns="vehicleId"/>
-      <exported-key name="FK_15c3oo2ou8dcy4rcuh5967qtq" table="TwoWheeler" schema="" catalog="jersey_restful" columns="vehicleId"/>
-    </table>
-    <table name="Workers" schema="" catalog="jersey_restful" type="TABLE">
+    <table name="Supplier" schema="" catalog="jersey_restful" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="surname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-    </table>
-    <table name="Workers_new_table" schema="" catalog="jersey_restful" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="surname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_rs36j88onyhh1iunlr6qthvj6" table="Product" schema="" catalog="jersey_restful" columns="supplier_id"/>
     </table>
     <table name="columns_priv" schema="" catalog="mysql" type="TABLE">
       <column name="Host" sqlType="CHAR" precision="60" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
